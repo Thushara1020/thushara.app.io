@@ -24,12 +24,15 @@ import { SkillsComponent } from '../../component/skills/skills.component';
 
 import { FEATURED_TECHNOLOGIES } from '../../component/skills/skills.data';
 
+import { ThemeService } from '../../services/theme.service';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   imports: [LiveBuildComponent, GithubActivityComponent, CertificatesComponent, MediumArticlesComponent, SkillsComponent],
 })
 export class HomeComponent implements AfterViewInit, OnDestroy {
+  readonly themeService = inject(ThemeService);
   readonly featuredTechnologies = FEATURED_TECHNOLOGIES;
   private readonly zone = inject(NgZone);
   private readonly route = inject(ActivatedRoute);

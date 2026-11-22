@@ -3,10 +3,12 @@
 }
 .hero-topline {
   display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
   justify-content: space-between;
   align-items: center;
   color: var(--muted);
-  font-size: 8px;
+  font-size: 0.75rem;
   letter-spacing: 1.4px;
 }
 .tiny-star {
@@ -17,7 +19,7 @@
 }
 .hero-stage {
   position: relative;
-  height: clamp(540px, 44vw, 730px);
+  height: clamp(620px, 47vw, 780px);
   margin-top: 12px;
   isolation: isolate;
   overflow: clip;
@@ -29,7 +31,7 @@
   width: 101%;
   font: 400 clamp(130px, 20.2vw, 335px)/1.15 var(--display);
   letter-spacing: -0.045em;
-  color: #ed1239;
+  color: var(--red);
   transform: scaleX(1.23);
   transform-origin: left top;
   user-select: none;
@@ -64,7 +66,7 @@
   object-fit: cover;
   object-position: 50% 35%;
   mask-image: radial-gradient(ellipse, #000 35%, transparent 70%);
-  mix-blend-mode: lighten;
+  mix-blend-mode: var(--portrait-blend);
 }
 .hero-copy {
   position: absolute;
@@ -92,9 +94,10 @@
   letter-spacing: 0.3px;
 }
 .hero-description {
-  font-size: 11px;
+  max-width: 340px;
+  font-size: 0.9375rem;
   line-height: 1.9;
-  color: #c6c0cd;
+  color: var(--hero-copy);
   margin-top: 21px;
 }
 .hero-copy > .red-button {
@@ -104,12 +107,12 @@
 .cv-link {
   display: flex;
   width: max-content;
-  font-size: 8px;
+  font-size: 0.75rem;
   margin-top: 17px;
   gap: 16px;
 }
 .cv-link > i {
-  font-size: 11px;
+  font-size: 0.8125rem;
 }
 .hero-side {
   position: absolute;
@@ -123,7 +126,7 @@
 }
 .vertical-note {
   writing-mode: vertical-rl;
-  font-size: 8px;
+  font-size: 0.75rem;
   letter-spacing: 2px;
   color: var(--muted);
 }
@@ -139,18 +142,20 @@
 }
 .hero-socials > a:hover {
   transform: translateY(-3px);
-  color: #fff;
+  color: var(--text);
 }
 .hero-bottom {
   display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
   justify-content: space-between;
   align-items: center;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   padding: 18px 0;
-  font-size: 8px;
+  font-size: 0.75rem;
   letter-spacing: 1.2px;
-  color: #aaa4b1;
+  color: var(--muted);
 }
 .hero-bottom > span:first-child {
   display: flex;
@@ -185,7 +190,7 @@
 }
 @media (max-width: 1100px) {
   .hero-stage {
-    height: 570px;
+    height: 650px;
   }
   .portfolio-word {
     font-size: 20.5vw;
@@ -214,10 +219,10 @@
   .hero-copy > .red-button {
     min-height: 43px;
     min-width: 160px;
-    font-size: 10px;
+    font-size: 0.8125rem;
   }
   .hero-bottom {
-    font-size: 7px;
+    font-size: 0.75rem;
     letter-spacing: 0.7px;
   }
   .hero-bottom > span:nth-child(2) {
@@ -229,18 +234,18 @@
     padding-top: 20px;
   }
   .hero-topline {
-    font-size: 6px;
+    font-size: 0.75rem;
     letter-spacing: 0.8px;
   }
   .hero-topline > span:last-child {
-    font-size: 5px;
+    font-size: 0.75rem;
   }
   .tiny-star {
-    font-size: 12px;
+    font-size: 0.875rem;
     margin-left: 4px;
   }
   .hero-stage {
-    height: 640px;
+    height: 710px;
     margin-top: 15px;
   }
   .portfolio-word {
@@ -249,6 +254,7 @@
     top: 0;
   }
   .hero-copy {
+    position: absolute;
     top: 105px;
     width: 100%;
   }
@@ -266,11 +272,11 @@
     margin-top: 8px;
   }
   .hero-description {
-    font-size: 10px;
+    font-size: 0.9375rem;
     line-height: 1.9;
-    max-width: 200px;
+    max-width: 230px;
     margin-top: 18px;
-    text-shadow: 0 1px 8px #0c0c12;
+    text-shadow: 0 1px 8px var(--hero-shadow);
   }
   .hero-description br {
     display: none;
@@ -278,13 +284,13 @@
   .hero-copy > .red-button {
     margin-top: 23px;
     min-width: 160px;
-    font-size: 10px;
+    font-size: 0.8125rem;
     gap: 30px;
     padding: 11px 15px;
   }
   .cv-link {
     margin-top: 18px;
-    font-size: 7px;
+    font-size: 0.75rem;
   }
   .portrait-wrap {
     left: 28%;
@@ -302,6 +308,7 @@
     z-index: 2;
   }
   .hero-side {
+    position: absolute;
     right: 0;
     bottom: 20px;
   }
@@ -311,10 +318,10 @@
   .hero-socials {
     flex-direction: row;
     gap: 18px;
-    font-size: 15px;
+    font-size: 1rem;
   }
   .hero-bottom {
-    font-size: 6px;
+    font-size: 0.75rem;
     letter-spacing: 0.7px;
     gap: 15px;
     padding-block: 16px;
@@ -332,9 +339,6 @@
   }
 }
 @media (max-width: 390px) {
-  .hero-stage {
-    height: 590px;
-  }
   .hero-copy {
     top: 95px;
   }
@@ -348,8 +352,8 @@
     font-size: 16px;
   }
   .hero-description {
-    font-size: 9px;
-    max-width: 160px;
+    font-size: 0.9375rem;
+    max-width: 210px;
   }
   .portrait-wrap {
     height: 64%;
@@ -358,11 +362,11 @@
   }
   .hero-copy > .red-button {
     min-width: 145px;
-    font-size: 9px;
+    font-size: 0.75rem;
     padding-inline: 13px;
   }
   .hero-bottom {
-    font-size: 5.5px;
+    font-size: 0.75rem;
   }
 }
 @media (prefers-reduced-motion: reduce) {

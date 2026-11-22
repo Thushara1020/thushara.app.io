@@ -26,7 +26,7 @@
   border-radius: 3px;
   background: var(--worker-color);
   color: #11141c;
-  font: 600 9px/1.7 var(--body);
+  font: 600 0.75rem/1.7 var(--body);
   white-space: nowrap;
   letter-spacing: 0.2px;
 }
@@ -118,7 +118,7 @@
   margin-left: -4px;
   background: #70b4ff;
   color: #0c1420;
-  font-size: 7px;
+  font-size: 0.75rem;
   line-height: 1;
 }
 .build-avatars b:nth-child(2) {
@@ -131,7 +131,7 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 9px;
+  font-size: 0.75rem;
   color: #dedbe5;
   white-space: nowrap;
   padding-right: 10px;
@@ -157,7 +157,7 @@
   background: transparent;
   border: 0;
   border-radius: 4px;
-  font-size: 14px;
+  font-size: 1rem;
   color: #cbc8d4;
 }
 .build-controls button:hover {
@@ -175,15 +175,15 @@
     min-height: 36px;
   }
   .build-caption {
-    font-size: 8px;
+    font-size: 0.75rem;
   }
   .build-avatars b {
     width: 17px;
     height: 17px;
-    font-size: 6px;
+    font-size: 0.75rem;
   }
   :host ::ng-deep .build-cursor span {
-    font-size: 8px;
+    font-size: 0.75rem;
     padding: 1px 5px;
   }
   :host ::ng-deep .build-cursor svg {

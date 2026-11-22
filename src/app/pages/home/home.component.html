@@ -14,20 +14,27 @@
     <a href="#articles" [class.current]="activeSection === 'articles'">Articles</a>
     <a href="#contact" [class.current]="activeSection === 'contact'">Contact</a>
   </nav>
-  <a class="header-contact" href="mailto:thusharabawantha2001@gmail.com"
-    ><span class="status-dot"></span> Let's talk
-    <i class="bi bi-arrow-up-right"></i
-  ></a>
-  <button
-    class="menu-toggle"
-    type="button"
-    (click)="menuOpen = !menuOpen"
-    [attr.aria-expanded]="menuOpen"
-    aria-controls="mobile-nav"
-    [attr.aria-label]="menuOpen ? 'Close menu' : 'Open menu'"
-  >
-    <i [class]="menuOpen ? 'bi bi-x-lg' : 'bi bi-list'"></i>
-  </button>
+  <div class="header-actions">
+    <a class="header-contact" href="mailto:thusharabawantha2001@gmail.com"
+      ><span class="status-dot"></span> Let's talk
+      <i class="bi bi-arrow-up-right"></i
+    ></a>
+    <button class="theme-toggle" type="button" (click)="themeService.toggle()"
+      aria-label="Light theme" [attr.aria-pressed]="themeService.theme() === 'light'"
+      [title]="themeService.theme() === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'">
+      <i [class]="themeService.theme() === 'dark' ? 'bi bi-sun' : 'bi bi-moon-stars'" aria-hidden="true"></i>
+    </button>
+    <button
+      class="menu-toggle"
+      type="button"
+      (click)="menuOpen = !menuOpen"
+      [attr.aria-expanded]="menuOpen"
+      aria-controls="mobile-nav"
+      [attr.aria-label]="menuOpen ? 'Close menu' : 'Open menu'"
+    >
+      <i [class]="menuOpen ? 'bi bi-x-lg' : 'bi bi-list'"></i>
+    </button>
+  </div>
 </header>
 @if (menuOpen) {
   <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation">
