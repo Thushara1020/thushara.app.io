@@ -11,13 +11,14 @@ import { GithubActivityComponent } from '../../component/github-activity/github-
 import { CertificatesComponent } from '../../component/certificates/certificates.component';
 import { MediumArticlesComponent } from '../../component/medium-articles/medium-articles.component';
 import { ThemeService } from '../../services/theme.service';
+import { ScrollParticlesDirective } from '../../directives/scroll-particles.directive';
 import { SkillsComponent } from '../../component/skills/skills.component';
 import { FEATURED_TECHNOLOGIES } from '../../component/skills/skills.data';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  imports: [LiveBuildComponent, GithubActivityComponent, CertificatesComponent, MediumArticlesComponent, SkillsComponent],
+  imports: [LiveBuildComponent, GithubActivityComponent, CertificatesComponent, MediumArticlesComponent, SkillsComponent, ScrollParticlesDirective],
 })
 export class HomeComponent implements AfterViewInit, OnDestroy {
   readonly themeService = inject(ThemeService);
