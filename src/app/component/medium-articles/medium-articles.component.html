@@ -1,0 +1,33 @@
+<div class="section-heading">
+  <div>
+    <p class="eyebrow">06 / NOTES FROM THE KEYBOARD</p>
+    <h2>IDEAS WORTH<br /><span class="red">SHARING.</span></h2>
+  </div>
+  <a class="text-link" [href]="profileUrl" target="_blank" rel="noopener noreferrer">EXPLORE MY MEDIUM <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
+</div>
+<p class="writing-intro">Notes on software development, AI, and the things I learn along the way.</p>
+<div class="article-grid" [attr.aria-busy]="loading()">
+  @for (article of articles(); track article.url) {
+    <article class="article-card">
+      <a class="article-cover" [href]="article.url" target="_blank" rel="noopener noreferrer" [attr.aria-label]="'Read ' + article.title + ' on Medium'">
+        <span class="cover-mark" aria-hidden="true"><i class="bi bi-journal-code"></i></span>
+        @if (article.image) { <img [src]="article.image" alt="" loading="lazy" referrerpolicy="no-referrer" (error)="imageFailed($event)" /> }
+        <span class="medium-label"><i class="bi bi-medium" aria-hidden="true"></i> MEDIUM</span>
+      </a>
+      <div class="article-copy">
+        <time [attr.datetime]="article.date">{{ article.dateLabel }}</time>
+        <h3><a [href]="article.url" target="_blank" rel="noopener noreferrer">{{ article.title }}</a></h3>
+        <p>{{ article.excerpt }}</p>
+        <a class="text-link" [href]="article.url" target="_blank" rel="noopener noreferrer">READ ON MEDIUM <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
+      </div>
+    </article>
+  }
+</div>
+<div class="writing-footer">
+  <p role="status">
+    @if (loading()) { Checking for recent stories… }
+    @else if (failed()) { Showing saved stories. More writing is available on Medium. }
+    @else { Recent stories from my Medium profile. }
+  </p>
+  @if (failed()) { <button type="button" class="text-link" (click)="load()">TRY AGAIN <i class="bi bi-arrow-clockwise" aria-hidden="true"></i></button> }
+</div>

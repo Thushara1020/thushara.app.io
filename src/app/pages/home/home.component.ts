@@ -18,10 +18,12 @@ interface Work {
   description: string;
 }
 
+import { MediumArticlesComponent } from '../../component/medium-articles/medium-articles.component';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  imports: [LiveBuildComponent, GithubActivityComponent, CertificatesComponent],
+  imports: [LiveBuildComponent, GithubActivityComponent, CertificatesComponent, MediumArticlesComponent],
 })
 export class HomeComponent implements AfterViewInit, OnDestroy {
   private readonly zone = inject(NgZone);

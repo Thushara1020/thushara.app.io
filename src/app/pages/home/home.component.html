@@ -11,6 +11,7 @@
       >Expertise</a
     >
     <a href="#certificates" [class.current]="activeSection === 'certificates'">Certificates</a>
+    <a href="#articles" [class.current]="activeSection === 'articles'">Articles</a>
     <a href="#contact" [class.current]="activeSection === 'contact'">Contact</a>
   </nav>
   <a class="header-contact" href="mailto:thusharabawantha2001@gmail.com"
@@ -36,6 +37,7 @@
     ><a href="#services" (click)="navigate()">Expertise</a
     ><a href="#resume" (click)="navigate()">Journey</a
     ><a href="#certificates" (click)="navigate()">Certificates</a
+    ><a href="#articles" (click)="navigate()">Articles</a
     ><a href="#contact" (click)="navigate()">Contact</a>
   </nav>
 }
@@ -408,9 +410,13 @@
     <app-certificates></app-certificates>
   </section>
 
+  <section id="articles" class="page-width section-space" aria-label="Articles on Medium">
+    <app-medium-articles></app-medium-articles>
+  </section>
+
   <section id="contact" class="contact-section page-width section-space">
     <div class="contact-intro reveal">
-      <p class="eyebrow">06 / YOUR NEXT CHAPTER</p>
+      <p class="eyebrow">07 / YOUR NEXT CHAPTER</p>
       <h2 class="big-heading">
         LET'S BUILD<br />TOGETHER<span class="red">.</span>
       </h2>

@@ -1,0 +1,28 @@
+:host { display: block; }
+.writing-intro { color: var(--muted); font-size: 1rem; line-height: 1.8; max-width: 620px; margin: -12px 0 30px; }
+.article-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 26px; }
+.article-card { display: flex; flex-direction: column; min-width: 0; background: var(--panel); border: 1px solid var(--line); }
+.article-cover { position: relative; display: block; overflow: hidden; aspect-ratio: 16 / 10; background: radial-gradient(ellipse at 80% 20%, #542039, #141420 70%); }
+.cover-mark { position: absolute; inset: 0; display: grid; place-items: center; color: #ff627f; font-size: 64px; }
+.article-cover img { position: relative; width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
+.article-cover img[hidden] { display: none; }
+.article-cover:hover img { transform: scale(1.04); }
+.medium-label { color: #fff; position: absolute; top: 12px; left: 12px; display: inline-flex; align-items: center; gap: 7px; padding: 5px 10px; background: #0c0c12e8; font-size: .75rem; letter-spacing: 1px; }
+.medium-label i { font-size: 16px; }
+.article-copy { display: flex; flex-direction: column; flex: 1; align-items: flex-start; padding: 24px; }
+time { color: var(--muted); font-size: .8125rem; }
+h3 { font-size: 20px; line-height: 1.5; margin-top: 12px; overflow-wrap: anywhere; }
+h3 a:hover { color: var(--red); }
+.article-copy p { margin-block: 14px 24px; color: var(--muted); font-size: .9375rem; line-height: 1.8; }
+.article-copy > .text-link { margin-top: auto; padding-top: 18px; border-top: 1px solid var(--line); width: 100%; justify-content: space-between; font-size: .75rem; }
+.writing-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-top: 22px; }
+.writing-footer p { font-size: .8125rem; color: var(--muted); }
+@media (max-width: 1000px) {
+  .article-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .article-card:last-child { grid-column: 1 / -1; }
+}
+@media (max-width: 600px) {
+  .article-grid { grid-template-columns: minmax(0, 1fr); }
+  .article-copy { padding: 22px; }
+  h3 { font-size: 19px; }
+}

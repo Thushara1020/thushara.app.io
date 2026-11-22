@@ -8,6 +8,7 @@ export const routes: Routes = [
   { path: 'portfolio', component: HomeComponent, data: { section: 'work' } },
   { path: 'services', component: HomeComponent, data: { section: 'services' } },
   { path: 'certificates', component: HomeComponent, data: { section: 'certificates' } },
+  { path: 'articles', component: HomeComponent, data: { section: 'articles' } },
   { path: 'contact', component: HomeComponent, data: { section: 'contact' } },
   { path: '**', redirectTo: '' },
 ];
