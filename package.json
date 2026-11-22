@@ -5,6 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "postbuild": "node scripts/prepare-seo.mjs",
+    "test:seo": "node --test scripts/prepare-seo.test.mjs",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Portfolio share preview artwork</title>
+  <style>
+    @font-face { font-family: Anton; src: url('../public/fonts/anton.ttf'); }
+    @font-face { font-family: Manrope; src: url('../public/fonts/manrope.ttf'); }
+    * { box-sizing: border-box; }
+    html, body { width: 1200px; height: 630px; margin: 0; overflow: hidden; }
+    body { position: relative; isolation: isolate; background: #0c0c12; color: #f4f1ed; font-family: Manrope, sans-serif; }
+    .glow { position: absolute; inset: 0; z-index: -1; background: radial-gradient(ellipse at 87% 55%, #7e163a45, transparent 48%); }
+    .edge { position: absolute; inset: 25px; border: 1px solid #ffffff18; }
+    header { position: relative; z-index: 2; display: flex; align-items: center; justify-content: space-between; padding: 52px 60px 0; }
+    .brand { font: 27px Anton; letter-spacing: -.5px; }
+    .red { color: #ff3657; }
+    .eyebrow { color: #c7c2cf; font-size: 13px; letter-spacing: 2px; }
+    main { position: relative; z-index: 2; padding: 63px 60px 0; width: 730px; }
+    h1 { margin: 14px 0 20px; font: 86px/1.08 Anton; letter-spacing: -1px; }
+    .role { margin: 0; font-size: 23px; font-weight: 600; letter-spacing: .5px; }
+    .description { margin: 20px 0 0; color: #c7c2cf; font-size: 19px; line-height: 1.7; }
+    .portrait { position: absolute; right: 5px; bottom: 0; width: 570px; height: 545px; object-fit: contain; object-position: bottom; z-index: 1; }
+    .backdrop-word { position: absolute; right: -33px; top: 170px; font: 155px Anton; writing-mode: vertical-rl; color: #ff36570f; z-index: -1; }
+    footer { position: absolute; bottom: 53px; left: 60px; z-index: 2; display: flex; align-items: center; gap: 12px; font-size: 13px; letter-spacing: 1.5px; }
+    .dot { width: 7px; height: 7px; background: #ff3657; border-radius: 50%; }
+    .line { position: absolute; bottom: 0; left: 0; width: 100%; height: 6px; background: #ff3657; }
+  </style>
+</head>
+<body>
+  <div class="glow"></div><div class="edge"></div>
+  <header><span class="brand">THUSHARA<span class="red">.</span></span><span class="eyebrow">DEVELOPER & CREATIVE THINKER</span></header>
+  <main>
+    <span class="eyebrow">A CURIOUS MIND. A BUILDER AT HEART.</span>
+    <h1>THUSHARA<br /><span class="red">BHAWANTHA.</span></h1>
+    <p class="role">Angular <span class="red">/</span> Java <span class="red">/</span> Spring Boot</p>
+    <p class="description">Thoughtful interfaces. Practical code.<br />Ideas built into digital experiences.</p>
+  </main>
+  <span class="backdrop-word" aria-hidden="true">PORTFOLIO</span>
+  <img class="portrait" src="../public/portrait-neon.png" alt="Thushara Bhawantha" />
+  <footer><span class="dot"></span> BASED IN SRI LANKA</footer><div class="line"></div>
+</body>
+</html>
