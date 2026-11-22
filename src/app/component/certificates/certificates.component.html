@@ -1,0 +1,63 @@
+<div class="section-heading">
+  <div>
+    <p class="eyebrow">05 / CERTIFICATES & ACHIEVEMENTS</p>
+    <h2>ALWAYS LEARNING.<br /><span class="red">MORE TO BUILD.</span></h2>
+  </div>
+  <p class="cert-intro">Courses completed. Skills explored. Milestones earned.<br />A few steps along my learning journey.</p>
+</div>
+<div class="cert-toolbar">
+  <div class="filters" aria-label="Filter certificates and achievements">
+    @for (option of filters; track option) {
+      <button type="button" [class.active]="activeFilter() === option" [attr.aria-pressed]="activeFilter() === option" (click)="filter(option)">{{ option }}</button>
+    }
+  </div>
+  <span class="small-label">{{ certificates.length }} / CERTIFICATES & BADGES</span>
+</div>
+<div class="cert-grid" id="certificate-grid">
+  @for (certificate of visible; track certificate.id) {
+    <article class="cert-card">
+      <button type="button" class="cert-preview" (click)="open(certificate)" [attr.aria-label]="'Preview ' + certificate.title" aria-haspopup="dialog">
+        <img [src]="certificate.thumbnail" [alt]="certificate.title + ' — ' + certificate.issuer" loading="lazy" width="800" height="566" />
+        <span class="cert-kind">{{ certificate.kind }}</span>
+        <span class="preview-hint"><i class="bi bi-arrows-fullscreen" aria-hidden="true"></i> VIEW {{ certificate.kind === 'Badge' ? 'BADGE' : 'CERTIFICATE' }}</span>
+      </button>
+      <div class="cert-details">
+        <p class="cert-issuer">{{ certificate.issuer }}</p>
+        <h3>{{ certificate.title }}</h3>
+        <div class="cert-meta">
+          @if (certificate.date) { <time [attr.datetime]="certificate.date">{{ certificate.dateLabel }}</time> }
+          <span>{{ certificate.topic }}</span>
+        </div>
+        <div class="cert-actions">
+          <button type="button" (click)="open(certificate)">VIEW {{ certificate.kind === 'Badge' ? 'BADGE' : 'CERTIFICATE' }} <i class="bi bi-arrow-up-right" aria-hidden="true"></i></button>
+          @if (certificate.credentialUrl) {
+            <a [href]="certificate.credentialUrl" target="_blank" rel="noopener noreferrer" [attr.aria-label]="'Verify ' + certificate.title">VERIFY <i class="bi bi-patch-check" aria-hidden="true"></i></a>
+          }
+        </div>
+      </div>
+    </article>
+  }
+</div>
+@if (filtered.length > 6) {
+  <div class="cert-more">
+    <button class="text-link" type="button" (click)="expanded.set(!expanded())" [attr.aria-expanded]="expanded()" aria-controls="certificate-grid">
+      {{ expanded() ? 'SHOW FEWER' : 'VIEW ALL ' + filtered.length + ' ACHIEVEMENTS' }}
+      <i [class]="expanded() ? 'bi bi-arrow-up' : 'bi bi-arrow-down'" aria-hidden="true"></i>
+    </button>
+  </div>
+}
+<dialog #preview class="certificate-dialog" aria-labelledby="certificate-title" (click)="dismissBackdrop($event)" (close)="selected.set(null)">
+  <button class="cert-close" type="button" aria-label="Close certificate preview" (click)="close()" autofocus><i class="bi bi-x-lg" aria-hidden="true"></i></button>
+  @if (selected(); as certificate) {
+    <div class="preview-heading">
+      <p class="eyebrow">{{ certificate.issuer }} / {{ certificate.kind }}</p>
+      <h3 id="certificate-title">{{ certificate.title }}</h3>
+    </div>
+    <img class="certificate-full" [src]="certificate.image" [alt]="certificate.title + ' certificate issued to Thushara Bhawantha'" />
+    <div class="preview-actions">
+      <a class="red-button" [href]="certificate.original" target="_blank" rel="noopener noreferrer">OPEN ORIGINAL <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a>
+      @if (certificate.credentialUrl) { <a class="text-link" [href]="certificate.credentialUrl" target="_blank" rel="noopener noreferrer">VERIFY CREDENTIAL <i class="bi bi-patch-check" aria-hidden="true"></i></a> }
+      @if (certificate.transcript) { <a class="text-link" [href]="certificate.transcript" target="_blank" rel="noopener noreferrer">VIEW TRANSCRIPT <i class="bi bi-file-earmark-text" aria-hidden="true"></i></a> }
+    </div>
+  }
+</dialog>
