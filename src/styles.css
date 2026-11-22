@@ -470,17 +470,32 @@ h4 {
   font-weight: 600;
 }
 .tool-logos {
-  display: flex;
   flex: 1;
-  align-items: center;
-  justify-content: space-between;
-  gap: 22px;
+  min-width: 0;
+  overflow: hidden;
+  padding-block: 10px;
   color: #c6c2c9;
+  mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
 }
-.tool-logos > span {
+.tool-logos-track {
   display: flex;
+  width: max-content;
+  animation: tools-scroll 32s linear infinite;
+  will-change: transform;
+}
+.tool-logos-group {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 48px;
+  padding-right: 48px;
+}
+.tool-logos-group > span {
+  display: flex;
+  flex: 0 0 140px;
   align-items: center;
   gap: 8px;
+  white-space: nowrap;
   font-size: 16px;
   letter-spacing: -0.5px;
   font-weight: 600;
@@ -492,6 +507,11 @@ h4 {
   border: 1px solid #b9b4bf;
   padding: 1px 4px;
   font-size: 22px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+@keyframes tools-scroll {
+  to { transform: translateX(-50%); }
 }
 .about-section {
   display: grid;
@@ -1058,14 +1078,18 @@ h4 {
   .section-space {
     padding-block: 65px;
   }
-  .tool-logos > span {
+  .tool-logos-group > span {
     font-size: 12px;
   }
   .toolkit {
     gap: 20px;
   }
-  .tool-logos {
-    gap: 13px;
+  .tool-logos-group {
+    gap: 32px;
+    padding-right: 32px;
+  }
+  .tool-logos-group > span {
+    flex-basis: 120px;
   }
   .tool-logos i {
     font-size: 23px;
@@ -1245,12 +1269,7 @@ h4 {
   .toolkit-label > span {
     font-size: 8px;
   }
-  .tool-logos {
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: 16px 24px;
-  }
-  .tool-logos > span {
+  .tool-logos-group > span {
     font-size: 12px;
   }
   .tool-logos i {
@@ -1432,6 +1451,11 @@ h4 {
   }
 }
 @media (prefers-reduced-motion: reduce) {
+  .tool-logos { mask-image: none; }
+  .tool-logos-track { width: 100%; will-change: auto; }
+  .tool-logos-group { flex-wrap: wrap; gap: 20px; padding-right: 0; width: 100%; }
+  .tool-logos-group > span { flex: 0 0 auto; }
+  .tool-logos-group[aria-hidden="true"] { display: none; }
   html {
     scroll-behavior: auto;
   }

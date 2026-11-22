@@ -202,13 +202,19 @@
         <span>THE RIGHT RESULTS.</span>
       </div>
       <div class="tool-logos" aria-label="Technology toolkit">
-        <span><i class="bi bi-code-square"></i> Angular</span
-        ><span><i class="bi bi-cup-hot"></i> Java</span
-        ><span><i class="bi bi-leaf"></i> Spring</span
-        ><span class="ts-mark">TS</span
-        ><span><i class="bi bi-filetype-html"></i> HTML</span
-        ><span><i class="bi bi-git"></i> Git</span
-        ><span><i class="bi bi-bootstrap"></i></span>
+        <div class="tool-logos-track">
+          @for (copy of [0, 1]; track copy) {
+            <div class="tool-logos-group" role="list" [attr.aria-hidden]="copy === 1 ? 'true' : null">
+              <span role="listitem"><i class="bi bi-code-square" aria-hidden="true"></i> Angular</span>
+              <span role="listitem"><i class="bi bi-cup-hot" aria-hidden="true"></i> Java</span>
+              <span role="listitem"><i class="bi bi-leaf" aria-hidden="true"></i> Spring</span>
+              <span role="listitem"><b class="ts-mark" aria-hidden="true">TS</b> TypeScript</span>
+              <span role="listitem"><i class="bi bi-filetype-html" aria-hidden="true"></i> HTML</span>
+              <span role="listitem"><i class="bi bi-git" aria-hidden="true"></i> Git</span>
+              <span role="listitem"><i class="bi bi-bootstrap" aria-hidden="true"></i> Bootstrap</span>
+            </div>
+          }
+        </div>
       </div>
     </div>
   </section>
