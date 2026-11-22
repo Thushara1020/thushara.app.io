@@ -493,7 +493,7 @@ h4 {
 }
 .tool-logos-group > span {
   display: flex;
-  flex: 0 0 140px;
+  flex: 0 0 170px;
   align-items: center;
   gap: 8px;
   white-space: nowrap;
@@ -540,7 +540,7 @@ h4 {
 }
 .expertise-grid {
   display: grid;
-  grid-template-columns: 1.1fr 1fr 0.65fr;
+  grid-template-columns: 1.6fr .8fr;
   gap: 5%;
   padding-top: 14px;
 }
@@ -979,7 +979,7 @@ h4 {
     padding-right: 32px;
   }
   .tool-logos-group > span {
-    flex-basis: 120px;
+    flex-basis: 165px;
   }
   .tool-logos i {
     font-size: 23px;
@@ -990,7 +990,7 @@ h4 {
   .about-actions { gap: 18px; }
   .expertise-grid {
     gap: 4%;
-    grid-template-columns: 1fr 1fr 0.7fr;
+    grid-template-columns: 1.6fr .8fr;
   }
   .manifesto {
     padding: 22px 18px;

@@ -20,12 +20,17 @@ interface Work {
 
 import { MediumArticlesComponent } from '../../component/medium-articles/medium-articles.component';
 
+import { SkillsComponent } from '../../component/skills/skills.component';
+
+import { FEATURED_TECHNOLOGIES } from '../../component/skills/skills.data';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  imports: [LiveBuildComponent, GithubActivityComponent, CertificatesComponent, MediumArticlesComponent],
+  imports: [LiveBuildComponent, GithubActivityComponent, CertificatesComponent, MediumArticlesComponent, SkillsComponent],
 })
 export class HomeComponent implements AfterViewInit, OnDestroy {
+  readonly featuredTechnologies = FEATURED_TECHNOLOGIES;
   private readonly zone = inject(NgZone);
   private readonly route = inject(ActivatedRoute);
   private observer?: IntersectionObserver;

@@ -1,0 +1,46 @@
+<div class="skills-heading">
+  <h3>CORE TECHNOLOGIES</h3>
+  <p>The tools at the heart of my stack.</p>
+</div>
+<div class="core-grid">
+  @for (category of coreStack; track category.title) {
+    <article class="core-card">
+      <h4><i [class]="'bi ' + category.icon" aria-hidden="true"></i>{{ category.title }}</h4>
+      <ul class="tech-pills">
+        @for (skill of category.skills; track skill) { <li>{{ skill }}</li> }
+      </ul>
+    </article>
+  }
+</div>
+<div class="skills-heading full-heading">
+  <h3>THE FULL TOOLKIT</h3>
+  <p>Explore each category for more tools and technologies.</p>
+</div>
+<div class="category-grid">
+  @for (category of categories; track category.title; let index = $index) {
+    <article class="category-card">
+      <div class="category-heading">
+        <span class="category-icon"><i [class]="'bi ' + category.icon" aria-hidden="true"></i></span>
+        <h4>{{ category.title }}</h4>
+        <span class="category-number" aria-hidden="true">0{{ index + 1 }}</span>
+      </div>
+      <div class="skill-group">
+        <h5>{{ category.groups[0].label }}</h5>
+        <ul class="tech-pills">
+          @for (skill of category.groups[0].skills; track skill) { <li>{{ skill }}</li> }
+        </ul>
+      </div>
+      <details>
+        <summary><span>More skills <span class="summary-category">in {{ category.title }}</span></span><i class="bi bi-plus-lg" aria-hidden="true"></i></summary>
+        @for (group of category.groups.slice(1); track group.label) {
+          <div class="skill-group">
+            <h5>{{ group.label }}</h5>
+            <ul class="tech-pills">
+              @for (skill of group.skills; track skill) { <li>{{ skill }}</li> }
+            </ul>
+          </div>
+        }
+      </details>
+    </article>
+  }
+</div>

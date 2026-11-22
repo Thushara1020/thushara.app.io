@@ -206,16 +206,12 @@
         <span>THE RIGHT RESULTS.</span>
       </div>
       <div class="tool-logos" aria-label="Technology toolkit">
-        <div class="tool-logos-track">
+        <div class="tool-logos-track" [style.animation-duration.s]="featuredTechnologies.length * 4.5">
           @for (copy of [0, 1]; track copy) {
             <div class="tool-logos-group" role="list" [attr.aria-hidden]="copy === 1 ? 'true' : null">
-              <span role="listitem"><i class="bi bi-code-square" aria-hidden="true"></i> Angular</span>
-              <span role="listitem"><i class="bi bi-cup-hot" aria-hidden="true"></i> Java</span>
-              <span role="listitem"><i class="bi bi-leaf" aria-hidden="true"></i> Spring</span>
-              <span role="listitem"><b class="ts-mark" aria-hidden="true">TS</b> TypeScript</span>
-              <span role="listitem"><i class="bi bi-filetype-html" aria-hidden="true"></i> HTML</span>
-              <span role="listitem"><i class="bi bi-git" aria-hidden="true"></i> Git</span>
-              <span role="listitem"><i class="bi bi-bootstrap" aria-hidden="true"></i> Bootstrap</span>
+              @for (technology of featuredTechnologies; track technology.name) {
+                <span role="listitem"><i [class]="'bi ' + technology.icon" aria-hidden="true"></i>{{ technology.name }}</span>
+              }
             </div>
           }
         </div>
@@ -256,33 +252,8 @@
         focus is simple: useful experiences with a strong visual point of view.
       </p>
     </div>
+    <app-skills></app-skills>
     <div class="expertise-grid">
-      <div class="skills-column reveal">
-        <h3 class="column-title">EXPERTISE & SKILLS</h3>
-        <div class="skill-row">
-          <span class="small-label red">01 / DEVELOPMENT</span>
-          <h4>Full-stack development</h4>
-          <p>
-            Angular interfaces. Spring Boot APIs.<br />Connected from front to
-            back.
-          </p>
-          <i class="bi bi-arrow-up-right"></i>
-        </div>
-        <div class="skill-row">
-          <span class="small-label red">02 / EXPERIENCE</span>
-          <h4>Thoughtful interface design</h4>
-          <p>
-            Responsive layouts, clear interactions,<br />and the details that
-            make it feel right.
-          </p>
-          <i class="bi bi-arrow-up-right"></i>
-        </div>
-        <div class="skills-tags">
-          <span>Angular</span><span>TypeScript</span><span>Java</span
-          ><span>Spring Boot</span><span>HTML / CSS</span><span>REST APIs</span
-          ><span>Git & GitHub</span><span>Responsive design</span>
-        </div>
-      </div>
       <div class="process-column reveal">
         <h3 class="column-title">MY DEVELOPMENT PLAYBOOK</h3>
         <div class="process-step">
