@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, signal } from '@angular/core';
+import { Component, OnDestroy, OnInit, signal, ChangeDetectionStrategy } from '@angular/core';
 import { SAVED_ARTICLES } from './medium-articles.data';
 
 export interface MediumArticle {
@@ -47,6 +47,7 @@ export function parseMediumArticle(value: unknown): MediumArticle | null {
 @Component({
   selector: 'app-medium-articles',
   templateUrl: './medium-articles.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './medium-articles.component.css',
 })
 export class MediumArticlesComponent implements OnInit, OnDestroy {

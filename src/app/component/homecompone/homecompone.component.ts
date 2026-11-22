@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 import Typed from 'typed.js'; // Typed.js import karanna
 
 @Component({
@@ -6,6 +6,7 @@ import Typed from 'typed.js'; // Typed.js import karanna
   standalone: true, // Angular modern version nam meka thiyenna ona
   imports: [],
   templateUrl: './homecompone.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './homecompone.component.css'
 })
 export class HomecomponeComponent implements AfterViewInit, OnDestroy {

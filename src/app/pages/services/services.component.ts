@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common'; 
 import { NavbarComponent } from "../../component/navbar/navbar.component";
 import { FooterComponent } from "../../component/footer/footer.component";
@@ -8,6 +8,7 @@ import { FooterComponent } from "../../component/footer/footer.component";
   standalone: true,
   imports: [NavbarComponent, CommonModule, FooterComponent], 
   templateUrl: './services.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './services.component.css'
 })
 export class ServicesComponent {

@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { CORE_STACK, SKILL_CATEGORIES } from './skills.data';
 
 @Component({
   selector: 'app-skills',
   templateUrl: './skills.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './skills.component.css',
 })
 export class SkillsComponent {

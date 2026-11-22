@@ -1,9 +1,10 @@
-import { Component, ElementRef, ViewChild, signal } from '@angular/core';
+import { Component, ElementRef, ViewChild, signal, ChangeDetectionStrategy } from '@angular/core';
 import { CERTIFICATES, Certificate } from './certificates.data';
 
 @Component({
   selector: 'app-certificates',
   templateUrl: './certificates.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './certificates.component.css',
 })
 export class CertificatesComponent {

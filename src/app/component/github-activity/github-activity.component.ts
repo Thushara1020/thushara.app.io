@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, signal } from '@angular/core';
+import { Component, OnDestroy, OnInit, signal, ChangeDetectionStrategy } from '@angular/core';
 
 interface Contribution {
   date: string;
@@ -13,6 +13,7 @@ interface CalendarDay extends Contribution {
 @Component({
   selector: 'app-github-activity',
   templateUrl: './github-activity.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './github-activity.component.css',
 })
 export class GithubActivityComponent implements OnInit, OnDestroy {

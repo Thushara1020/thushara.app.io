@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { NavbarComponent } from "../../component/navbar/navbar.component";
 import { FooterComponent } from "../../component/footer/footer.component";
 import { AboutcomponentComponent } from "../../component/aboutcomponent/aboutcomponent.component";
@@ -7,6 +7,7 @@ import { AboutcomponentComponent } from "../../component/aboutcomponent/aboutcom
   selector: 'app-about',
   imports: [NavbarComponent, FooterComponent, AboutcomponentComponent],
   templateUrl: './about.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './about.component.css'
 })
 export class AboutComponent {

@@ -6,6 +6,7 @@ import {
   OnDestroy,
   ViewChild,
   inject,
+  ChangeDetectionStrategy
 } from '@angular/core';
 
 interface Glyph {
@@ -39,6 +40,7 @@ interface Worker {
 @Component({
   selector: 'app-live-build',
   templateUrl: './live-build.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './live-build.component.css',
 })
 export class LiveBuildComponent implements AfterViewInit, OnDestroy {

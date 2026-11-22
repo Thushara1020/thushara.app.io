@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common'; // NgFor saha NgIf pavichchi karanna meka ona
 
 @Component({
@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common'; // NgFor saha NgIf pavichchi kar
   standalone: true, // Angular 17+ nam standalone use karanna puluwan
   imports: [CommonModule], // CommonModule ekathu karanna ona (TitleCasePipe eka methana thiyenawa)
   templateUrl: './portfoliocompone.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './portfoliocompone.component.css'
 })
 export class PortfoliocomponeComponent {

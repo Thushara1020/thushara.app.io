@@ -4,6 +4,7 @@ import {
   NgZone,
   OnDestroy,
   inject,
+  ChangeDetectionStrategy
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { LiveBuildComponent } from '../../component/live-build/live-build.component';
@@ -18,6 +19,7 @@ import { FEATURED_TECHNOLOGIES } from '../../component/skills/skills.data';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [LiveBuildComponent, GithubActivityComponent, CertificatesComponent, MediumArticlesComponent, SkillsComponent, ScrollParticlesDirective],
 })
 export class HomeComponent implements AfterViewInit, OnDestroy {
