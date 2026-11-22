@@ -7,8 +7,8 @@ import {
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { LiveBuildComponent } from '../../component/live-build/live-build.component';
-
 import { GithubActivityComponent } from '../../component/github-activity/github-activity.component';
+import { CertificatesComponent } from '../../component/certificates/certificates.component';
 
 interface Work {
   id: string;
@@ -21,7 +21,7 @@ interface Work {
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  imports: [LiveBuildComponent, GithubActivityComponent],
+  imports: [LiveBuildComponent, GithubActivityComponent, CertificatesComponent],
 })
 export class HomeComponent implements AfterViewInit, OnDestroy {
   private readonly zone = inject(NgZone);

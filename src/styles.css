@@ -38,7 +38,8 @@ body {
   font: 400 14px/1.7 var(--body);
   -webkit-font-smoothing: antialiased;
 }
-body:has(.work-dialog) {
+body:has(.work-dialog),
+body:has(.certificate-dialog[open]) {
   overflow: hidden;
 }
 a {
