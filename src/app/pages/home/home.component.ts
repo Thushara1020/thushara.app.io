@@ -9,22 +9,10 @@ import { ActivatedRoute } from '@angular/router';
 import { LiveBuildComponent } from '../../component/live-build/live-build.component';
 import { GithubActivityComponent } from '../../component/github-activity/github-activity.component';
 import { CertificatesComponent } from '../../component/certificates/certificates.component';
-
-interface Work {
-  id: string;
-  title: string;
-  category: string;
-  image: string;
-  description: string;
-}
-
 import { MediumArticlesComponent } from '../../component/medium-articles/medium-articles.component';
-
-import { SkillsComponent } from '../../component/skills/skills.component';
-
-import { FEATURED_TECHNOLOGIES } from '../../component/skills/skills.data';
-
 import { ThemeService } from '../../services/theme.service';
+import { SkillsComponent } from '../../component/skills/skills.component';
+import { FEATURED_TECHNOLOGIES } from '../../component/skills/skills.data';
 
 @Component({
   selector: 'app-home',
@@ -40,59 +28,9 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   private sectionObserver?: IntersectionObserver;
   menuOpen = false;
   activeSection = 'home';
-  activeFilter = 'All';
-  selectedWork: Work | null = null;
-  readonly filters = ['All', 'Web development', 'Design', 'Articles'];
-  readonly works: Work[] = [
-    {
-      id: '01',
-      title: 'The portfolio experience',
-      category: 'Web development',
-      image: '',
-      description:
-        'The Angular portfolio you are exploring. A responsive, interactive experience with bold typography, project filtering, and a live-building animation with simulated collaborator cursors. Built with Angular, TypeScript, and CSS.',
-    },
-    {
-      id: '02',
-      title: 'Technology, visualised',
-      category: 'Design',
-      image: 'Artical02.png',
-      description:
-        'A visual exploration of Java arrays and string searching. Turning a technical topic into a clear, engaging visual story.',
-    },
-    {
-      id: '03',
-      title: 'The next chapter of AI',
-      category: 'Articles',
-      image: 'Artical01.png',
-      description:
-        'An article visual exploring artificial intelligence and the changing Sri Lankan job market. Part of my collection of technology-focused content.',
-    },
-  ];
-  get filteredWorks(): Work[] {
-    return this.activeFilter === 'All'
-      ? this.works
-      : this.works.filter((work) => work.category === this.activeFilter);
-  }
-  setFilter(filter: string): void {
-    this.activeFilter = filter;
-  }
   navigate(): void {
     this.menuOpen = false;
   }
-  openWork(work: Work): void {
-    this.selectedWork = work;
-    document.body.style.overflow = 'hidden';
-  }
-  closeWork(): void {
-    this.selectedWork = null;
-    document.body.style.overflow = '';
-    requestAnimationFrame(() =>
-      document.getElementById('work-' + this.lastWorkId)?.focus(),
-    );
-  }
-  lastWorkId = '';
-
   ngAfterViewInit(): void {
     this.observer = new IntersectionObserver(
       (entries) => {
@@ -130,34 +68,11 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   }
 
   private readonly keydown = (event: KeyboardEvent): void => {
-    if (event.key === 'Escape') {
-      if (this.selectedWork) this.closeWork();
-      this.menuOpen = false;
-    }
-    if (event.key === 'Tab' && this.selectedWork) {
-      const elements = Array.from(
-        document.querySelectorAll<HTMLElement>(
-          '.work-dialog button, .work-dialog a',
-        ),
-      );
-      const first = elements[0],
-        last = elements[elements.length - 1];
-      if (event.shiftKey && document.activeElement === first) {
-        event.preventDefault();
-        last?.focus();
-      } else if (!event.shiftKey && document.activeElement === last) {
-        event.preventDefault();
-        first?.focus();
-      }
-    }
+    if (event.key === 'Escape') this.menuOpen = false;
   };
-  focusDialog(): void {
-    setTimeout(() => document.getElementById('close-work')?.focus());
-  }
   ngOnDestroy(): void {
     this.observer?.disconnect();
     this.sectionObserver?.disconnect();
     window.removeEventListener('keydown', this.keydown);
-    document.body.style.overflow = '';
   }
 }
