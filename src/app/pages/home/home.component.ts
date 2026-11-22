@@ -8,6 +8,8 @@ import {
 import { ActivatedRoute } from '@angular/router';
 import { LiveBuildComponent } from '../../component/live-build/live-build.component';
 
+import { GithubActivityComponent } from '../../component/github-activity/github-activity.component';
+
 interface Work {
   id: string;
   title: string;
@@ -19,7 +21,7 @@ interface Work {
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  imports: [LiveBuildComponent],
+  imports: [LiveBuildComponent, GithubActivityComponent],
 })
 export class HomeComponent implements AfterViewInit, OnDestroy {
   private readonly zone = inject(NgZone);
